@@ -26,7 +26,7 @@ logger = logging.getLogger(__name__)
 
 # ── Constantes ───────────────────────────────────────────────────────────────
 DB_PATH = Path(__file__).parent.parent / "data" / "index.db"
-MODEL_NAME = "intfloat/multilingual-e5-small"
+MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 EMBEDDING_DIM = 384
 
 # ── Modelo de embedding (carregado sob demanda) ───────────────────────────────

@@ -5,7 +5,7 @@ from fastembed import TextEmbedding
 
 logger = logging.getLogger(__name__)
 
-MODEL_NAME = "intfloat/multilingual-e5-small"
+MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 BATCH_SIZE = 100
 
 _model: TextEmbedding | None = None
@@ -27,7 +27,7 @@ def _batches(lst: list, size: int) -> Generator[list, None, None]:
 
 def embed_chunks(chunks: list[dict]) -> list[dict]:
     """
-    Gera embeddings para cada chunk usando fastembed (multilingual-e5-small, 384 dims).
+    Gera embeddings para cada chunk usando fastembed (paraphrase-multilingual-MiniLM-L12-v2, 384 dims).
 
     Recebe lista de dicts com campo 'text'.
     Retorna a mesma lista com campo 'embedding: list[float]' adicionado.

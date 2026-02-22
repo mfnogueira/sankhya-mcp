@@ -8,7 +8,7 @@ import sqlite_vec
 logger = logging.getLogger(__name__)
 
 DB_PATH = Path(__file__).parent.parent / "data" / "index.db"
-EMBEDDING_DIM = 384  # intfloat/multilingual-e5-small
+EMBEDDING_DIM = 384  # paraphrase-multilingual-MiniLM-L12-v2
 
 
 def _serialize(embedding: list[float]) -> bytes:
