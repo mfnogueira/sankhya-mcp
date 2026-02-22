@@ -13,8 +13,12 @@ wheels/
 .env
 
 # Índice vetorial — gerado pelo ingest, não versionar no git
-# (mas DEVE ir no pacote npm)
+# (mas DEVE ir no pacote PyPI)
 data/index.db
+src/data/index.db
 
 # OS
 .DS_Store
+
+# Documentação interna
+spec.md

@@ -25,7 +25,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ── Constantes ───────────────────────────────────────────────────────────────
-DB_PATH = Path(__file__).parent.parent / "data" / "index.db"
+DB_PATH = Path(__file__).parent / "data" / "index.db"
 MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 EMBEDDING_DIM = 384
 

@@ -2,7 +2,7 @@
 
 > **Projeto em fase inicial — novas versões e funcionalidades em breve.**
 
-Servidor MCP (Model Context Protocol) para documentação do **Sankhya ERP**, com busca semântica local via RAG. Permite que o Claude (VS Code, Claude Desktop, etc.) responda perguntas precisas sobre o sistema Sankhya sem necessidade de chaves de API em runtime.
+Servidor MCP (Model Context Protocol) para documentação do **Sankhya ERP**, com busca semântica local via RAG. Permite que o Claude (VS Code, Claude Desktop, etc.) responda perguntas precisas sobre o sistema Sankhya — sem chaves de API, sem configuração de infraestrutura, sem latência de rede.
 
 ---
 
@@ -11,20 +11,34 @@ Servidor MCP (Model Context Protocol) para documentação do **Sankhya ERP**, co
 O conhecimento fica embutido no pacote como um índice vetorial local (`sqlite-vec`). O servidor roda localmente via STDIO e responde às queries do Claude com os trechos de documentação mais relevantes.
 
 ```
-Usuário pergunta ao Claude
-        ↓
+Você pergunta ao Claude sobre o Sankhya
+              ↓
 Claude chama search_docs (MCP tool)
-        ↓
+              ↓
 Servidor busca no índice local (sem API externa)
-        ↓
+              ↓
 Claude responde com base na documentação do Sankhya
 ```
 
 ---
 
-## Instalação — VS Code
+## Instalação
 
-Adicione ao `.mcp.json` do seu projeto:
+### Pré-requisito
+
+É necessário ter o `uv` instalado na sua máquina:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+> O `uv` é um gerenciador de pacotes Python moderno e ultrarrápido. Ele será usado automaticamente pelo `npx` para instalar as dependências do servidor.
+
+---
+
+### VS Code / Claude Code
+
+Crie ou edite o arquivo `.mcp.json` na raiz do seu projeto:
 
 ```json
 {
@@ -37,9 +51,14 @@ Adicione ao `.mcp.json` do seu projeto:
 }
 ```
 
-## Instalação — Claude Desktop
+---
 
-Adicione ao `claude_desktop_config.json`:
+### Claude Desktop
+
+Edite o arquivo `claude_desktop_config.json`:
+
+- **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
 
 ```json
 {
@@ -47,6 +66,30 @@ Adicione ao `claude_desktop_config.json`:
     "sankhya-docs": {
       "command": "npx",
       "args": ["sankhya-mcp"]
+    }
+  }
+}
+```
+
+Reinicie o Claude Desktop após salvar.
+
+---
+
+### Uso pessoal (instalação global)
+
+Se preferir instalar globalmente na sua máquina em vez de usar `npx`:
+
+```bash
+npm install -g sankhya-mcp
+```
+
+E no arquivo de configuração do Claude, use:
+
+```json
+{
+  "mcpServers": {
+    "sankhya-docs": {
+      "command": "sankhya-mcp"
     }
   }
 }
@@ -71,6 +114,8 @@ Adicione ao `claude_desktop_config.json`:
 - *Como otimizar queries para dashboards?*
 - *Como reabrir uma ordem de produção?*
 - *Como corrigir apontamentos de OP com quantidade errada?*
+- *Como emitir boletos em lote?*
+- *O que fazer quando uma OP está com quantidade incorreta?*
 
 ---
 
@@ -84,12 +129,30 @@ Adicione ao `claude_desktop_config.json`:
 
 ---
 
+## Contribuindo
+
+Este projeto é uma **iniciativa livre e aberta**. Qualquer pessoa pode contribuir — seja adicionando documentação, melhorando a qualidade da busca, corrigindo erros ou sugerindo novas funcionalidades.
+
+**Como contribuir:**
+
+- Abra uma [Issue](https://github.com/mfnogueira/sankhya-mcp/issues) para reportar erros ou sugerir melhorias
+- Envie um Pull Request com novos documentos ou correções
+- Compartilhe o projeto com outros usuários do Sankhya
+
+---
+
 ## Status
 
 Este projeto está em **fase inicial de desenvolvimento**. Em breve:
 
 - Novas coleções de documentação
 - Melhorias na qualidade da busca
-- Publicação no npm para uso via `npx`
+- Suporte a mais módulos do Sankhya ERP
 
-Sugestões e contribuições são bem-vindas via [Issues](https://github.com/mfnogueira/sankhya-mcp/issues).
+---
+
+## Achou útil?
+
+Se este projeto te ajudou, considere dar uma **estrela no GitHub** — isso ajuda outras pessoas a encontrarem o projeto!
+
+[dar uma estrela no GitHub](https://github.com/mfnogueira/sankhya-mcp)

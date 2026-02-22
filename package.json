@@ -1,0 +1,21 @@
+{
+  "name": "sankhya-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Sankhya ERP documentation — semantic search via sqlite-vec",
+  "license": "MIT",
+  "keywords": ["mcp", "sankhya", "erp", "documentation", "rag"],
+  "homepage": "https://github.com/mfnogueira/sankhya-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mfnogueira/sankhya-mcp.git"
+  },
+  "bin": {
+    "sankhya-mcp": "./bin/sankhya-mcp.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "pyproject.toml",
+    "README.md"
+  ]
+}
