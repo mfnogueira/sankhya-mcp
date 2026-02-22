@@ -1,0 +1,20 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Secrets
+.env
+
+# Índice vetorial — gerado pelo ingest, não versionar no git
+# (mas DEVE ir no pacote npm)
+data/index.db
+
+# OS
+.DS_Store
