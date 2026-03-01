@@ -3,6 +3,8 @@ ingest/
 .env
 .gitignore
 .venv/
-__pycache__/
-*.pyc
+**/__pycache__/
+**/*.pyc
 spec.md
+dist/
+data/
