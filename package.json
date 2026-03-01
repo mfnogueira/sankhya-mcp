@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "MCP server for Sankhya ERP documentation — semantic search via sqlite-vec",
   "license": "MIT",
+  "type": "module",
   "keywords": ["mcp", "sankhya", "erp", "documentation", "rag"],
   "homepage": "https://github.com/mfnogueira/sankhya-mcp",
   "repository": {
@@ -13,9 +14,31 @@
     "sankhya-mcp": "./bin/sankhya-mcp.js"
   },
   "files": [
-    "bin/",
-    "src/",
-    "pyproject.toml",
+    "bin/sankhya-mcp.js",
+    "dist/server.js",
+    "dist/server.d.ts",
+    "src/data/index.db",
     "README.md"
-  ]
+  ],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "dev": "tsx src/server.ts",
+    "ingest": "tsx ingest/index.ts"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^3.4.0",
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "better-sqlite3": "^11.9.1",
+    "sqlite-vec": "^0.1.6",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^22.13.9",
+    "dotenv": "^16.4.7",
+    "openai": "^4.87.3",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
 }

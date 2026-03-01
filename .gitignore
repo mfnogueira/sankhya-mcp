@@ -1,21 +1,18 @@
-# Python-generated files
-__pycache__/
-*.py[oc]
-build/
+# Node
+node_modules/
 dist/
-wheels/
-*.egg-info
-
-# Virtual environments
-.venv
 
 # Secrets
 .env
 
 # Índice vetorial — gerado pelo ingest, não versionar no git
-# (mas DEVE ir no pacote PyPI)
 data/index.db
 src/data/index.db
+
+# Python (legado)
+__pycache__/
+*.py[oc]
+.venv/
 
 # OS
 .DS_Store
